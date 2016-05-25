@@ -40,7 +40,7 @@ class Trigger {
     }
 }
 
-func 💣(time: Int) throws -> Trigger {
+func 💣(_ time: Int) throws -> Trigger {
     struct Internals {
         static var trigger = Trigger(alarmTime: 🕛)
     }

@@ -41,7 +41,7 @@ import XCTest
 ///
 /// If the expression fails, your test fails.
 ///
-public func AssertNoThrow<R>(@autoclosure closure: () throws -> R) -> R? {
+public func AssertNoThrow<R>(_ closure: @autoclosure() throws -> R) -> R? {
     var result: R?
     AssertNoThrow() {
         result = try closure()
@@ -49,7 +49,7 @@ public func AssertNoThrow<R>(@autoclosure closure: () throws -> R) -> R? {
     return result
 }
 
-public func AssertNoThrow(@noescape closure: () throws -> ()) {
+public func AssertNoThrow( closure: @noescape() throws -> ()) {
     do {
         try closure()
     } catch let error {
@@ -81,11 +81,15 @@ public func AssertNoThrow(@noescape closure: () throws -> ()) {
 ///
 /// If the expression or closure doesn't throw the expected error, your test fails.
 ///
-public func AssertThrows<R, E where E: ErrorProtocol>(expectedError: E, @autoclosure(escaping) _ closure: () throws -> R) -> () {
-    AssertThrows(expectedError) { try closure() }
+
+public func AssertThrows<R, E where E: ErrorProtocol>(_ expectedError: E, _ closure: @autoclosure(escaping) () throws -> R) -> () {
+    AssertThrows(expectedError: expectedError) {
+        try closure()
+    }
 }
 
-public func AssertThrows<E where E: ErrorProtocol>(expectedError: E, @noescape _ closure: () throws -> ()) -> () {
+
+public func AssertThrows<E where E: ErrorProtocol>(expectedError: E, _ closure: @noescape () throws -> ()) -> () {
     do {
         try closure()
         XCTFail("Expected to catch <\(expectedError)>, "
@@ -99,19 +103,19 @@ public func AssertThrows<E where E: ErrorProtocol>(expectedError: E, @noescape _
     }
 }
 
-public func AssertThrows<R, E where E: ErrorProtocol, E: Equatable>(expectedError: E, @autoclosure(escaping) _ closure: () throws -> R) -> () {
-    AssertThrows(expectedError) { try closure() }
+public func AssertThrows<R, E where E: ErrorProtocol, E: Equatable>(_ expectedError: E, _ closure: @autoclosure(escaping) () throws -> R) -> () {
+    AssertThrows(expectedError: expectedError) { try closure() }
 }
 
-public func AssertThrows<E where E: ErrorProtocol, E: Equatable>(expectedError: E, @noescape _ closure: () throws -> ()) -> () {
+public func AssertThrows<E where E: ErrorProtocol, E: Equatable>(expectedError: E, _ closure: @noescape () throws -> ()) -> () {
     do {
         try closure()
         XCTFail("Expected to catch <\(expectedError)>, "
             + "but no error was thrown.")
     } catch let error as E {
         XCTAssertEqual(error, expectedError,
-            "Caught error <\(error)> is of the expected type <\(E.self)>, "
-                + "but not the expected case <\(expectedError)>.")
+                       "Caught error <\(error)> is of the expected type <\(E.self)>, "
+                        + "but not the expected case <\(expectedError)>.")
     } catch {
         XCTFail("Caught error <\(error)>, "
             + "but not of the expected type and value "

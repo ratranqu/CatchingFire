@@ -13,13 +13,13 @@ enum Error : ErrorProtocol {
     case MayNotBeZero
 }
 
-func failsWithZero(x: Int) throws -> () {
+func failsWithZero(_ x: Int) throws -> () {
     guard x != 0 else {
         throw Error.MayNotBeZero
     }
 }
 
-func idButFailsWithZero(x: Int) throws -> Int {
+func idButFailsWithZero(_ x: Int) throws -> Int {
     guard x != 0 else {
         throw Error.MayNotBeZero
     }
@@ -48,7 +48,7 @@ class CatchingFireTests: XCTestCase {
             let x = try idButFailsWithZero(1)
             XCTAssertEqual(x, 1)
         }
-        AssertNoThrow(try idButFailsWithZero(1)).map { (x: Int) in
+        let _ = AssertNoThrow(try idButFailsWithZero(1)).map { (x: Int) in
             XCTAssertEqual(x, 1)
         }
     }

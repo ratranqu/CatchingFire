@@ -50,10 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2932A0FB1B52ABE800A71171 /* UniversalFramework_Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UniversalFramework_Base.xcconfig; sourceTree = "<group>"; };
-		2932A0FC1B52ABE800A71171 /* UniversalFramework_Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UniversalFramework_Framework.xcconfig; sourceTree = "<group>"; };
-		2932A0FD1B52ABE800A71171 /* UniversalFramework_Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UniversalFramework_Test.xcconfig; sourceTree = "<group>"; };
-		2932A10D1B52CB0800A71171 /* CatchingFire.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; indentWidth = 2; path = CatchingFire.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		29673CFF1B4C381300EC2043 /* CatchingFire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CatchingFire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29673D021B4C381300EC2043 /* CatchingFire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatchingFire.h; sourceTree = "<group>"; };
 		29673D041B4C381300EC2043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +58,7 @@
 		29673D101B4C381300EC2043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29673D191B4C382200EC2043 /* CatchingFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatchingFire.swift; sourceTree = "<group>"; };
 		29A2CEFB1B4EA3D10084D2DB /* ExampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
+		6F9EA9ED1CF4A7B90025DAEF /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,23 +80,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2932A0F81B52ABE800A71171 /* xcconfigs */ = {
-			isa = PBXGroup;
-			children = (
-				2932A0FB1B52ABE800A71171 /* UniversalFramework_Base.xcconfig */,
-				2932A0FC1B52ABE800A71171 /* UniversalFramework_Framework.xcconfig */,
-				2932A0FD1B52ABE800A71171 /* UniversalFramework_Test.xcconfig */,
-			);
-			path = xcconfigs;
-			sourceTree = "<group>";
-		};
 		29673CF51B4C381300EC2043 = {
 			isa = PBXGroup;
 			children = (
-				2932A10D1B52CB0800A71171 /* CatchingFire.podspec */,
+				6F9EA9ED1CF4A7B90025DAEF /* Package.swift */,
 				29673D011B4C381300EC2043 /* CatchingFire */,
 				29673D0D1B4C381300EC2043 /* CatchingFireTests */,
-				2932A0F81B52ABE800A71171 /* xcconfigs */,
 				29673D001B4C381300EC2043 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -193,7 +179,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Marius Rackwitz";
 				TargetAttributes = {
 					2932A0FF1B52B45700A71171 = {
@@ -349,7 +335,6 @@
 		};
 		29673D111B4C381300EC2043 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2932A0FB1B52ABE800A71171 /* UniversalFramework_Base.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -395,7 +380,6 @@
 		};
 		29673D121B4C381300EC2043 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2932A0FB1B52ABE800A71171 /* UniversalFramework_Base.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -435,9 +419,9 @@
 		};
 		29673D141B4C381300EC2043 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2932A0FC1B52ABE800A71171 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.2.0;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -458,9 +442,9 @@
 		};
 		29673D151B4C381300EC2043 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2932A0FC1B52ABE800A71171 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0.2.0;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -480,8 +464,8 @@
 		};
 		29673D171B4C381300EC2043 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2932A0FD1B52ABE800A71171 /* UniversalFramework_Test.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mariusrackwitz.CatchingFireTests;
@@ -491,8 +475,8 @@
 		};
 		29673D181B4C381300EC2043 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2932A0FD1B52ABE800A71171 /* UniversalFramework_Test.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.mariusrackwitz.CatchingFireTests;
